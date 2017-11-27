@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://apps.agnet.com.br/WebServices/usuarios/Usuarios.asmx?wsdl" filename="Usuarios.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="https://apps.agnet.com.br/WebServices/usuarios/Usuarios.asmx?disco" filename="Usuarios.disco" />
+  </Results>
+</DiscoveryClientResultsFile>

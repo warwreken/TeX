@@ -43,3 +43,5 @@ C:\TeX\TeX\TeX\bin\System.Web.WebPages.Razor.xml
 C:\TeX\TeX\TeX\bin\Antlr3.Runtime.pdb
 C:\TeX\TeX\TeX\obj\Release\TeX.dll
 C:\TeX\TeX\TeX\obj\Release\TeX.pdb
+C:\Tex\Tex\TeX\bin\TeX.XmlSerializers.dll
+C:\Tex\Tex\TeX\obj\Release\TeX.XmlSerializers.dll

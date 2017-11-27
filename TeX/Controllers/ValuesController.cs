@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Web.Http;
 using TeX.Models;
 
@@ -6,38 +7,61 @@ namespace TeX.Controllers
 {
     public class ValuesController : ApiController
     {
-        // GET api/values
-        public IEnumerable<string> Get()
+        [HttpPost]
+        public Response Post([FromBody] WebHook wh)
         {
-            return new string[] { "value1", "value2" };
-        }
+            var response = new Response();
+            string cpf = string.Empty;
+            string idade = string.Empty;
+            string rg = string.Empty;
+            for (int i = 0; i < wh.result.contexts.Count; i++)
+            {
+                if (wh.result.contexts[i].ToString().Contains("cpf.original"))
+                {
+                    dynamic data = JsonConvert.DeserializeObject(wh.result.contexts[i].ToString());
+                    cpf = data.parameters.cpf;
+                    rg = data.parameters.rg;
+                    idade = data.parameters.idade;
+                    continue;
+                }
+            }
+            switch (wh.result.metadata.intentName)
+            {
+                case "ag.ti.desbloquearUsuarioRG":
+                    //TODO METHOD RESPONSE
+                    InfoReset.Usuarios users = new InfoReset.Usuarios();
+                    var reset = users.ConfirmarInformacoesParaReset("", cpf, rg, idade);
+                    switch (reset.Codigo)
+                    {
+                        case 0:
+                            response.speech = "BIIIIIP... de acordo com meus cálculos, o usuário " + reset.Mensagem + " agora está desbloquedo!";
+                            break;
+                        case 1:
+                            response.speech = "BEH! Alguma das informações não foram reconhecidas!";
+                            break;
+                        case 2:
+                            response.speech = "Não tente se passar por outra pessoa... Esse usuário não está mais entre nós!";
+                            break;
+                        case 3:
+                            response.speech = "HMM... Essa pessoa não está com um e-mail cadastrado... Eu vejo inconsistências... Com que frequência?! Todo o tempo... =P";
+                            break;
+                        case 4:
+                            response.speech = "Faltou alguma informação pra eu identificar o usuário. Ainda não tenho bola de cristal, sabia?";
+                            break;
+                        default:
+                            response.speech = "MINHA CABEÇA DÓI!";
+                            break;
+                    }
+                   
+                    response.displayText = "O usuário " + reset.Mensagem + " foi desbloqueado com sucesso!";
+                    break;
+                default:
+                    response.speech = "não deu";
+                    response.displayText = "não deu";
+                    break;
+            }
 
-        // GET api/values/5
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/values
-        public WebHook Post([FromBody]string value)
-        {
-            var wh = new WebHook();
-
-            wh.Speech = "Funcionou o Speech";
-            wh.DisplayText = "Funcionou o Display";
-            wh.Source = "WebHookSource";
-
-            return wh;
-        }
-
-        // PUT api/values/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
-        public void Delete(int id)
-        {
+            return response;
         }
     }
 }

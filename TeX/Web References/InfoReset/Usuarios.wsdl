@@ -1,0 +1,1060 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="BuscaPorLoginCompleto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dominio" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscaPorLoginCompletoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscaPorLoginCompletoResult" type="tns:Usuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Usuario">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrimeiroNome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UltimoNome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Dominio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Login" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Matricula" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Departamento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefone" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UltimaAtualizacao" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Grupos" type="tns:ArrayOfAnyType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BuscaPorLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscaPorLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscaPorLoginResult" type="tns:Usuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscaPorId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscaPorIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscaPorIdResult" type="tns:Usuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscaPorEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscaPorEmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscaPorEmailResult" type="tns:Usuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarUsuariosDoGrupo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nomeGrupo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarUsuariosDoGrupoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarUsuariosDoGrupoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarUsuariosEmailDoGrupo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nomeGrupo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarUsuariosEmailDoGrupoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarUsuariosEmailDoGrupoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarFuncionariosCom">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inicio" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarFuncionariosComResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarFuncionariosComResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarFuncionariosContendo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inicio" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarFuncionariosContendoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarFuncionariosContendoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarFuncionariosSGACom">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nome" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarFuncionariosSGAComResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarFuncionariosSGAComResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarFuncionariosSGAContendo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nome" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarFuncionariosSGAContendoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarFuncionariosSGAContendoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarNomesCom">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inicio" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarNomesComResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarNomesComResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarNomesContendo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inicio" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarNomesContendoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarNomesContendoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Todos">
+        <s:complexType />
+      </s:element>
+      <s:element name="TodosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TodosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TodosAtivos">
+        <s:complexType />
+      </s:element>
+      <s:element name="TodosAtivosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TodosAtivosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TodosInativos">
+        <s:complexType />
+      </s:element>
+      <s:element name="TodosInativosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TodosInativosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TodosFuncionarios">
+        <s:complexType />
+      </s:element>
+      <s:element name="TodosFuncionariosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TodosFuncionariosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarGruposDeUsuarios">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="grupo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarGruposDeUsuariosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarGruposDeUsuariosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidaFuncionario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidaFuncionarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValidaFuncionarioResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarDadosDeUsuariosCom">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nome" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfUsuario">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Usuario" nillable="true" type="tns:Usuario" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ListarDadosDeUsuariosComResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarDadosDeUsuariosComResult" type="tns:ArrayOfUsuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarDadosDeUsuariosContendo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nome" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarDadosDeUsuariosContendoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarDadosDeUsuariosContendoResult" type="tns:ArrayOfUsuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AutenticaADAG">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senha" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AutenticaADAGResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AutenticaADAGResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmarInformacoesParaReset">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="matricula" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cpf" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="rg" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idade" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Confirmacao">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Codigo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mensagem" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConfirmarInformacoesParaResetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConfirmarInformacoesParaResetResult" type="tns:Confirmacao" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="BuscaPorLoginCompletoSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscaPorLoginCompleto" />
+  </wsdl:message>
+  <wsdl:message name="BuscaPorLoginCompletoSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscaPorLoginCompletoResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscaPorLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscaPorLogin" />
+  </wsdl:message>
+  <wsdl:message name="BuscaPorLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscaPorLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscaPorIdSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscaPorId" />
+  </wsdl:message>
+  <wsdl:message name="BuscaPorIdSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscaPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscaPorEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscaPorEmail" />
+  </wsdl:message>
+  <wsdl:message name="BuscaPorEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscaPorEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarUsuariosDoGrupoSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarUsuariosDoGrupo" />
+  </wsdl:message>
+  <wsdl:message name="BuscarUsuariosDoGrupoSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarUsuariosDoGrupoResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarUsuariosEmailDoGrupoSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarUsuariosEmailDoGrupo" />
+  </wsdl:message>
+  <wsdl:message name="BuscarUsuariosEmailDoGrupoSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarUsuariosEmailDoGrupoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarFuncionariosComSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarFuncionariosCom" />
+  </wsdl:message>
+  <wsdl:message name="ListarFuncionariosComSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarFuncionariosComResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarFuncionariosContendoSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarFuncionariosContendo" />
+  </wsdl:message>
+  <wsdl:message name="ListarFuncionariosContendoSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarFuncionariosContendoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarFuncionariosSGAComSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarFuncionariosSGACom" />
+  </wsdl:message>
+  <wsdl:message name="ListarFuncionariosSGAComSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarFuncionariosSGAComResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarFuncionariosSGAContendoSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarFuncionariosSGAContendo" />
+  </wsdl:message>
+  <wsdl:message name="ListarFuncionariosSGAContendoSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarFuncionariosSGAContendoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarNomesComSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarNomesCom" />
+  </wsdl:message>
+  <wsdl:message name="ListarNomesComSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarNomesComResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarNomesContendoSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarNomesContendo" />
+  </wsdl:message>
+  <wsdl:message name="ListarNomesContendoSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarNomesContendoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TodosSoapIn">
+    <wsdl:part name="parameters" element="tns:Todos" />
+  </wsdl:message>
+  <wsdl:message name="TodosSoapOut">
+    <wsdl:part name="parameters" element="tns:TodosResponse" />
+  </wsdl:message>
+  <wsdl:message name="TodosAtivosSoapIn">
+    <wsdl:part name="parameters" element="tns:TodosAtivos" />
+  </wsdl:message>
+  <wsdl:message name="TodosAtivosSoapOut">
+    <wsdl:part name="parameters" element="tns:TodosAtivosResponse" />
+  </wsdl:message>
+  <wsdl:message name="TodosInativosSoapIn">
+    <wsdl:part name="parameters" element="tns:TodosInativos" />
+  </wsdl:message>
+  <wsdl:message name="TodosInativosSoapOut">
+    <wsdl:part name="parameters" element="tns:TodosInativosResponse" />
+  </wsdl:message>
+  <wsdl:message name="TodosFuncionariosSoapIn">
+    <wsdl:part name="parameters" element="tns:TodosFuncionarios" />
+  </wsdl:message>
+  <wsdl:message name="TodosFuncionariosSoapOut">
+    <wsdl:part name="parameters" element="tns:TodosFuncionariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarGruposDeUsuariosSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarGruposDeUsuarios" />
+  </wsdl:message>
+  <wsdl:message name="ListarGruposDeUsuariosSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarGruposDeUsuariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidaFuncionarioSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidaFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ValidaFuncionarioSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidaFuncionarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarDadosDeUsuariosComSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarDadosDeUsuariosCom" />
+  </wsdl:message>
+  <wsdl:message name="ListarDadosDeUsuariosComSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarDadosDeUsuariosComResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarDadosDeUsuariosContendoSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarDadosDeUsuariosContendo" />
+  </wsdl:message>
+  <wsdl:message name="ListarDadosDeUsuariosContendoSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarDadosDeUsuariosContendoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AutenticaADAGSoapIn">
+    <wsdl:part name="parameters" element="tns:AutenticaADAG" />
+  </wsdl:message>
+  <wsdl:message name="AutenticaADAGSoapOut">
+    <wsdl:part name="parameters" element="tns:AutenticaADAGResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarInformacoesParaResetSoapIn">
+    <wsdl:part name="parameters" element="tns:ConfirmarInformacoesParaReset" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarInformacoesParaResetSoapOut">
+    <wsdl:part name="parameters" element="tns:ConfirmarInformacoesParaResetResponse" />
+  </wsdl:message>
+  <wsdl:portType name="UsuariosSoap">
+    <wsdl:operation name="BuscaPorLoginCompleto">
+      <wsdl:input message="tns:BuscaPorLoginCompletoSoapIn" />
+      <wsdl:output message="tns:BuscaPorLoginCompletoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscaPorLogin">
+      <wsdl:input message="tns:BuscaPorLoginSoapIn" />
+      <wsdl:output message="tns:BuscaPorLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscaPorId">
+      <wsdl:input message="tns:BuscaPorIdSoapIn" />
+      <wsdl:output message="tns:BuscaPorIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscaPorEmail">
+      <wsdl:input message="tns:BuscaPorEmailSoapIn" />
+      <wsdl:output message="tns:BuscaPorEmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarUsuariosDoGrupo">
+      <wsdl:input message="tns:BuscarUsuariosDoGrupoSoapIn" />
+      <wsdl:output message="tns:BuscarUsuariosDoGrupoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarUsuariosEmailDoGrupo">
+      <wsdl:input message="tns:BuscarUsuariosEmailDoGrupoSoapIn" />
+      <wsdl:output message="tns:BuscarUsuariosEmailDoGrupoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarFuncionariosCom">
+      <wsdl:input message="tns:ListarFuncionariosComSoapIn" />
+      <wsdl:output message="tns:ListarFuncionariosComSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarFuncionariosContendo">
+      <wsdl:input message="tns:ListarFuncionariosContendoSoapIn" />
+      <wsdl:output message="tns:ListarFuncionariosContendoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarFuncionariosSGACom">
+      <wsdl:input message="tns:ListarFuncionariosSGAComSoapIn" />
+      <wsdl:output message="tns:ListarFuncionariosSGAComSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarFuncionariosSGAContendo">
+      <wsdl:input message="tns:ListarFuncionariosSGAContendoSoapIn" />
+      <wsdl:output message="tns:ListarFuncionariosSGAContendoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarNomesCom">
+      <wsdl:input message="tns:ListarNomesComSoapIn" />
+      <wsdl:output message="tns:ListarNomesComSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarNomesContendo">
+      <wsdl:input message="tns:ListarNomesContendoSoapIn" />
+      <wsdl:output message="tns:ListarNomesContendoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Todos">
+      <wsdl:input message="tns:TodosSoapIn" />
+      <wsdl:output message="tns:TodosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TodosAtivos">
+      <wsdl:input message="tns:TodosAtivosSoapIn" />
+      <wsdl:output message="tns:TodosAtivosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TodosInativos">
+      <wsdl:input message="tns:TodosInativosSoapIn" />
+      <wsdl:output message="tns:TodosInativosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TodosFuncionarios">
+      <wsdl:input message="tns:TodosFuncionariosSoapIn" />
+      <wsdl:output message="tns:TodosFuncionariosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarGruposDeUsuarios">
+      <wsdl:input message="tns:ListarGruposDeUsuariosSoapIn" />
+      <wsdl:output message="tns:ListarGruposDeUsuariosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidaFuncionario">
+      <wsdl:input message="tns:ValidaFuncionarioSoapIn" />
+      <wsdl:output message="tns:ValidaFuncionarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarDadosDeUsuariosCom">
+      <wsdl:input message="tns:ListarDadosDeUsuariosComSoapIn" />
+      <wsdl:output message="tns:ListarDadosDeUsuariosComSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarDadosDeUsuariosContendo">
+      <wsdl:input message="tns:ListarDadosDeUsuariosContendoSoapIn" />
+      <wsdl:output message="tns:ListarDadosDeUsuariosContendoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AutenticaADAG">
+      <wsdl:input message="tns:AutenticaADAGSoapIn" />
+      <wsdl:output message="tns:AutenticaADAGSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarInformacoesParaReset">
+      <wsdl:input message="tns:ConfirmarInformacoesParaResetSoapIn" />
+      <wsdl:output message="tns:ConfirmarInformacoesParaResetSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UsuariosSoap" type="tns:UsuariosSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BuscaPorLoginCompleto">
+      <soap:operation soapAction="http://tempuri.org/BuscaPorLoginCompleto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaPorLogin">
+      <soap:operation soapAction="http://tempuri.org/BuscaPorLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaPorId">
+      <soap:operation soapAction="http://tempuri.org/BuscaPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaPorEmail">
+      <soap:operation soapAction="http://tempuri.org/BuscaPorEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarUsuariosDoGrupo">
+      <soap:operation soapAction="http://tempuri.org/BuscarUsuariosDoGrupo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarUsuariosEmailDoGrupo">
+      <soap:operation soapAction="http://tempuri.org/BuscarUsuariosEmailDoGrupo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarFuncionariosCom">
+      <soap:operation soapAction="http://tempuri.org/ListarFuncionariosCom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarFuncionariosContendo">
+      <soap:operation soapAction="http://tempuri.org/ListarFuncionariosContendo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarFuncionariosSGACom">
+      <soap:operation soapAction="http://tempuri.org/ListarFuncionariosSGACom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarFuncionariosSGAContendo">
+      <soap:operation soapAction="http://tempuri.org/ListarFuncionariosSGAContendo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarNomesCom">
+      <soap:operation soapAction="http://tempuri.org/ListarNomesCom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarNomesContendo">
+      <soap:operation soapAction="http://tempuri.org/ListarNomesContendo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Todos">
+      <soap:operation soapAction="http://tempuri.org/Todos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TodosAtivos">
+      <soap:operation soapAction="http://tempuri.org/TodosAtivos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TodosInativos">
+      <soap:operation soapAction="http://tempuri.org/TodosInativos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TodosFuncionarios">
+      <soap:operation soapAction="http://tempuri.org/TodosFuncionarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarGruposDeUsuarios">
+      <soap:operation soapAction="http://tempuri.org/ListarGruposDeUsuarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidaFuncionario">
+      <soap:operation soapAction="http://tempuri.org/ValidaFuncionario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarDadosDeUsuariosCom">
+      <soap:operation soapAction="http://tempuri.org/ListarDadosDeUsuariosCom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarDadosDeUsuariosContendo">
+      <soap:operation soapAction="http://tempuri.org/ListarDadosDeUsuariosContendo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutenticaADAG">
+      <soap:operation soapAction="http://tempuri.org/AutenticaADAG" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarInformacoesParaReset">
+      <soap:operation soapAction="http://tempuri.org/ConfirmarInformacoesParaReset" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UsuariosSoap12" type="tns:UsuariosSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BuscaPorLoginCompleto">
+      <soap12:operation soapAction="http://tempuri.org/BuscaPorLoginCompleto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaPorLogin">
+      <soap12:operation soapAction="http://tempuri.org/BuscaPorLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaPorId">
+      <soap12:operation soapAction="http://tempuri.org/BuscaPorId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaPorEmail">
+      <soap12:operation soapAction="http://tempuri.org/BuscaPorEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarUsuariosDoGrupo">
+      <soap12:operation soapAction="http://tempuri.org/BuscarUsuariosDoGrupo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarUsuariosEmailDoGrupo">
+      <soap12:operation soapAction="http://tempuri.org/BuscarUsuariosEmailDoGrupo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarFuncionariosCom">
+      <soap12:operation soapAction="http://tempuri.org/ListarFuncionariosCom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarFuncionariosContendo">
+      <soap12:operation soapAction="http://tempuri.org/ListarFuncionariosContendo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarFuncionariosSGACom">
+      <soap12:operation soapAction="http://tempuri.org/ListarFuncionariosSGACom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarFuncionariosSGAContendo">
+      <soap12:operation soapAction="http://tempuri.org/ListarFuncionariosSGAContendo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarNomesCom">
+      <soap12:operation soapAction="http://tempuri.org/ListarNomesCom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarNomesContendo">
+      <soap12:operation soapAction="http://tempuri.org/ListarNomesContendo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Todos">
+      <soap12:operation soapAction="http://tempuri.org/Todos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TodosAtivos">
+      <soap12:operation soapAction="http://tempuri.org/TodosAtivos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TodosInativos">
+      <soap12:operation soapAction="http://tempuri.org/TodosInativos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TodosFuncionarios">
+      <soap12:operation soapAction="http://tempuri.org/TodosFuncionarios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarGruposDeUsuarios">
+      <soap12:operation soapAction="http://tempuri.org/ListarGruposDeUsuarios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidaFuncionario">
+      <soap12:operation soapAction="http://tempuri.org/ValidaFuncionario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarDadosDeUsuariosCom">
+      <soap12:operation soapAction="http://tempuri.org/ListarDadosDeUsuariosCom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarDadosDeUsuariosContendo">
+      <soap12:operation soapAction="http://tempuri.org/ListarDadosDeUsuariosContendo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutenticaADAG">
+      <soap12:operation soapAction="http://tempuri.org/AutenticaADAG" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarInformacoesParaReset">
+      <soap12:operation soapAction="http://tempuri.org/ConfirmarInformacoesParaReset" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Usuarios">
+    <wsdl:port name="UsuariosSoap" binding="tns:UsuariosSoap">
+      <soap:address location="http://apps.agnet.com.br/WebServices/usuarios/Usuarios.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UsuariosSoap12" binding="tns:UsuariosSoap12">
+      <soap12:address location="http://apps.agnet.com.br/WebServices/usuarios/Usuarios.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
