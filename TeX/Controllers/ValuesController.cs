@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.DirectoryServices.AccountManagement;
 using System.Web.Http;
 using TeX.Models;
 
@@ -34,7 +35,28 @@ namespace TeX.Controllers
                     switch (reset.Codigo)
                     {
                         case 0:
-                            response.speech = "BIIIIIP... de acordo com meus cálculos, o usuário " + reset.Mensagem + " agora está desbloquedo!";
+                            response.speech = "BIIIIIP... de acordo com meus cálculos, o usuário " + reset.Mensagem.Substring(9) + " agora está desbloquedo!";
+                            //PrincipalContext ctx = new PrincipalContext(ContextType.Domain,
+                            //             "AGDOMAIN",
+                            //             null,
+                            //             "_srvcUnlockAccount",
+                            //             "*DesbloqueadordeContasAG17");
+
+                            //UserPrincipal usr = UserPrincipal.FindByIdentity(ctx, IdentityType.SamAccountName, reset.Mensagem.Substring(9));
+                            //if (usr != null)
+                            //{
+                            //    if (usr.IsAccountLockedOut())
+                            //    {
+                            //        usr.UnlockAccount();
+                            //        response.speech = "BIIIIIP... de acordo com meus cálculos, o usuário " + reset.Mensagem.Substring(9) + " agora está desbloquedo!";
+                            //    }
+                            //    else
+                            //    {
+                            //        response.speech = "BEEEEHHHH! O usuário " + reset.Mensagem.Substring(9) + " não estava bloquedo!";
+                            //    }
+                            //    usr.Dispose();
+                            //}
+                            //ctx.Dispose();
                             break;
                         case 1:
                             response.speech = "BEH! Alguma das informações não foram reconhecidas!";
