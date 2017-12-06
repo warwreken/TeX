@@ -45,3 +45,4 @@ C:\TeX\TeX\TeX\obj\Release\TeX.dll
 C:\TeX\TeX\TeX\obj\Release\TeX.pdb
 C:\Tex\Tex\TeX\bin\TeX.XmlSerializers.dll
 C:\Tex\Tex\TeX\obj\Release\TeX.XmlSerializers.dll
+C:\TeX\TeX\TeX\obj\Release\TeX.csprojResolveAssemblyReference.cache

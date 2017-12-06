@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace TeX.Models
 {
@@ -63,11 +61,5 @@ namespace TeX.Models
         public object data { get; set; }
         public List<object> contextOut { get; set; }
         public string source { get; set; }
-    }
-
-    public class Context
-    {
-        public string name { get; set; }
-        public Dictionary<string, string> parameters { get; set; }
     }
 }
