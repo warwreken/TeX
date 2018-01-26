@@ -34,18 +34,18 @@ namespace TeX.Business
                 listForecast[10].TryGetValue("temp", out temperature);
                 listForecast[0].TryGetValue("low", out min);
                 listForecast[0].TryGetValue("high", out max);
-                return "A temperatura para hoje para " + location + " é de " + temperature + " com mínima de " + min + " e máxima de " + max + ".";
+                return "A temperatura hoje para " + location + " é de " + temperature + "º com mínima de " + min + "º e máxima de " + max + "º.";
             }
             else if (dia == "amanhã")
             {
                 listForecast[0].TryGetValue("low", out min);
                 listForecast[0].TryGetValue("high", out max);
-                return "A temperatura para amanhã em " + location + " está com mínima prevista para " + min + " e máxima de " + max + ".";
+                return "A temperatura amanhã em " + location + " está com mínima prevista para " + min + "º e máxima de " + max + "º.";
             }
             else
             {
                 listForecast[10].TryGetValue("temp", out temperature);
-                return "A temperatura para hoje para " + location + " é de " + temperature + " com mínima de " + min + " e máxima de " + max + ".";
+                return "A temperatura para " + location + " é de " + temperature + "º.";
             }
         }
     }

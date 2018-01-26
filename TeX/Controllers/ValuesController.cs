@@ -28,6 +28,10 @@ namespace TeX.Controllers
                     response.speech = GetInvite.GetReunioes(wh);
                     response.displayText = response.speech;
                     break;
+                case "ad.InformaçõesUsuários":
+                    response.speech = GetUserInformation.GetInformation(wh);
+                    response.displayText = response.speech;
+                    break;
                 default:
                     response.speech = "não deu";
                     response.displayText = "não deu";

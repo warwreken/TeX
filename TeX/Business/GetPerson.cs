@@ -28,28 +28,27 @@ namespace TeX.Business
             switch (reset.Codigo)
             {
                 case 0:
-                    response = "BIIIIIP... de acordo com meus cálculos, o usuário " + reset.Mensagem.Substring(9) + " agora está desbloquedo!";
-                    //PrincipalContext ctx = new PrincipalContext(ContextType.Domain,
-                    //             "AGDOMAIN",
-                    //             null,
-                    //             "_srvcUnlockAccount",
-                    //             "*DesbloqueadordeContasAG17");
+                    PrincipalContext ctx = new PrincipalContext(ContextType.Domain,
+                                 "AGDOMAIN",
+                                 null,
+                                 "_srvcUnlockAccount",
+                                 "*DesbloqueadordeContasAG17");
 
-                    //UserPrincipal usr = UserPrincipal.FindByIdentity(ctx, IdentityType.SamAccountName, reset.Mensagem.Substring(9));
-                    //if (usr != null)
-                    //{
-                    //    if (usr.IsAccountLockedOut())
-                    //    {
-                    //        usr.UnlockAccount();
-                    //        response.speech = "BIIIIIP... de acordo com meus cálculos, o usuário " + reset.Mensagem.Substring(9) + " agora está desbloquedo!";
-                    //    }
-                    //    else
-                    //    {
-                    //        response.speech = "BEEEEHHHH! O usuário " + reset.Mensagem.Substring(9) + " não estava bloquedo!";
-                    //    }
-                    //    usr.Dispose();
-                    //}
-                    //ctx.Dispose();
+                    UserPrincipal usr = UserPrincipal.FindByIdentity(ctx, IdentityType.SamAccountName, reset.Mensagem.Substring(9));
+                    if (usr != null)
+                    {
+                        if (usr.IsAccountLockedOut())
+                        {
+                            usr.UnlockAccount();
+                            response = "BIIIIIP... de acordo com meus cálculos, o usuário " + reset.Mensagem.Substring(9) + " agora está desbloquedo!";
+                        }
+                        else
+                        {
+                            response = "BEEEEHHHH! O usuário " + reset.Mensagem.Substring(9) + " não estava bloquedo!";
+                        }
+                        usr.Dispose();
+                    }
+                    ctx.Dispose();
                     break;
                 case 1:
                     response = "BEH! Alguma das informações não foram reconhecidas!";
@@ -64,7 +63,7 @@ namespace TeX.Business
                     response = "Faltou alguma informação pra eu identificar o usuário. Ainda não tenho bola de cristal, sabia?";
                     break;
                 default:
-                    response = "MINHA CABEÇA DÓI!";
+                    response = "Senhor... Estarei pedindo para que possa estar tentando novamente mais tarde pois estou com problemas no sistema... :)";
                     break;
             }
 
